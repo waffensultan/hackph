@@ -41,6 +41,7 @@ export function DeveloperCard(props: DeveloperCardProps) {
                         key={props.handles[handle as SocialMediaHandles]}
                         href={props.handles[handle as SocialMediaHandles]}
                         target="_blank"
+                        rel="noopener"
                     >
                         <span>{handle}</span>
                     </a>
