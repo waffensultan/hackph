@@ -1,5 +1,7 @@
 import { Menu as MenuIcon } from "lucide-react";
 
+import Link from "next/link";
+
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -16,7 +18,9 @@ export function Navigation() {
         <nav className="border-b border-primary p-5">
             <ul className="w-full flex flex-row items-center">
                 <li>
-                    <Logo style="header" />
+                    <Link href={"/"}>
+                        <Logo style="header" />
+                    </Link>
                 </li>
                 <li className="ml-auto flex flex-row items-center gap-8 font-semibold text-muted-foreground tracking-wide">
                     {navLinks.map((link) => (

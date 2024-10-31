@@ -1,6 +1,10 @@
 "use client";
 
-import { Instagram as InstagramIcon, Github as GithubIcon } from "lucide-react";
+import {
+    Instagram as InstagramIcon,
+    Github as GithubIcon,
+    SquareArrowOutUpRight as LinkIcon,
+} from "lucide-react";
 
 import {
     Avatar,
@@ -35,15 +39,17 @@ export function DeveloperCard(props: DeveloperCardProps) {
                 </h3>
             </header>
             <p className="text-sm leading-tight w-full">{props.introduction}</p>
-            <footer className="pt-10 flex flex-row justify-center items-center gap-5 text-blue-500 tracking-wider text-sm">
+            <footer className="pt-10 flex flex-wrap flex-row justify-center gap-5 text-blue-500 tracking-wider text-sm">
                 {Object.keys(props.handles).map((handle) => (
                     <a
                         key={props.handles[handle as SocialMediaHandles]}
                         href={props.handles[handle as SocialMediaHandles]}
                         target="_blank"
                         rel="noopener"
+                        className="flex flex-row items-center gap-2"
                     >
                         <span>{handle}</span>
+                        <LinkIcon className="w-4" />
                     </a>
                 ))}
             </footer>

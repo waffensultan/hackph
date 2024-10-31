@@ -1,5 +1,12 @@
 import { Logo } from "./typography/logo";
 
+import { Rhodium_Libre } from "next/font/google";
+
+const rhodiumLibre = Rhodium_Libre({
+    weight: "400",
+    subsets: ["latin"],
+});
+
 export function Footer() {
     return (
         <footer className="pt-[30rem]">
@@ -10,7 +17,9 @@ export function Footer() {
                             <Logo style="footer" />
                             <span className="italic">@ 2024</span>
                         </div>
-                        <h2 className="text-2xl font-semibold">
+                        <h2
+                            className={`${rhodiumLibre.className} text-2xl font-semibold`}
+                        >
                             Pinoys' Gateway to Hackathon Opportunities
                         </h2>
                     </li>
