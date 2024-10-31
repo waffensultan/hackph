@@ -7,24 +7,18 @@ import {
     DropdownMenuTrigger,
 } from "@/packages/ui/components/ui/dropdown-menu";
 
-import { Dosis } from "next/font/google";
-
-const dosis = Dosis({
-    subsets: ["latin"],
-});
+import { Logo } from "./typography/logo";
 
 export function Navigation() {
     const navLinks = ["Browse Hackathons", "Developers", "Contact"];
 
     return (
         <nav className="border-b border-primary p-5">
-            <li className="w-full flex flex-row items-center">
-                <ul>
-                    <h1 className={`${dosis.className} text-5xl text-primary`}>
-                        HackPH
-                    </h1>
-                </ul>
-                <ul className="ml-auto flex flex-row items-center gap-8 font-semibold text-muted-foreground tracking-wide">
+            <ul className="w-full flex flex-row items-center">
+                <li>
+                    <Logo style="header" />
+                </li>
+                <li className="ml-auto flex flex-row items-center gap-8 font-semibold text-muted-foreground tracking-wide">
                     {navLinks.map((link) => (
                         <span
                             key={link}
@@ -48,8 +42,8 @@ export function Navigation() {
                             ))}
                         </DropdownMenuContent>
                     </DropdownMenu>
-                </ul>
-            </li>
+                </li>
+            </ul>
         </nav>
     );
 }
