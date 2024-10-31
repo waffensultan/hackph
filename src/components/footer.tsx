@@ -1,5 +1,3 @@
-import { Fragment } from "react";
-
 import { Logo } from "./typography/logo";
 
 export function Footer() {

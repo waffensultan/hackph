@@ -28,7 +28,9 @@ export default function Page() {
                             className="w-32 group md:text-2xl md:w-64 md:py-6"
                             variant={"outline"}
                         >
-                            <span className="text-muted-foreground transition duration-150 group-hover:text-foreground">Learn More</span>
+                            <span className="text-muted-foreground transition duration-150 group-hover:text-foreground">
+                                Learn More
+                            </span>
                         </Button>
                     </div>
                 </div>
@@ -52,7 +54,10 @@ export default function Page() {
             </section>
 
             {/* MEET THE DEVELOPERS */}
-            <section id="developers" className="relative w-full flex flex-col justify-center items-center gap-16 pt-44 pb-14 max-md:px-7">
+            <section
+                id="developers"
+                className="relative w-full flex flex-col justify-center items-center gap-16 pt-44 pb-14 max-md:px-7"
+            >
                 <h1 className="font-extrabold bg-gradient-to-r from-purple-800 via-purple-500 to-purple-800 text-transparent bg-clip-text text-6xl tracking-wide text-center md:text-7xl">
                     Meet the Team
                 </h1>
@@ -62,8 +67,8 @@ export default function Page() {
                         introduction="The creator of HackPH. An enthusiast of Vim in VSCode and typing blazingly fast. Did we mention that they also happen to be single? "
                         position="Lead Full-Stack Developer"
                         image={{
-                            src: 'https://avatars.githubusercontent.com/u/111581149?v=4',
-                            alt: 'waffen'
+                            src: "https://avatars.githubusercontent.com/u/111581149?v=4",
+                            alt: "waffen",
                         }}
                         handles={{
                             github: "https://github.com/waffensultan",
