@@ -2,6 +2,8 @@
 
 import { Fragment } from "react";
 
+import Link from "next/link";
+
 import { Button } from "@/packages/ui/components/ui/button";
 import { DeveloperCard } from "@/components/developer-card";
 
@@ -31,47 +33,58 @@ export default function Page() {
                     <h1
                         className={`${rhodiumLibre.className} text-4xl font-extrabold md:text-6xl`}
                     >
-                        Pinoys' Gateway to Hackathon Opportunities
+                        Pinoys' Gateway to Tech Opportunities
                     </h1>
                     <p
                         className={`${khula.className} text-muted-foreground md:text-2xl`}
                     >
                         HackPH makes sure you never miss out on an opportunity.
                         With curated lists and real-time updates, with us,
-                        you're just one click away from your next hackathon
+                        you're just one click away from your next tech event
                         experience.
                     </p>
                     <div className="w-full flex flex-row gap-5 justify-center items-center max-md:pt-4 md:gap-14">
-                        <Button className="w-32 font-semibold md:text-2xl md:w-64 md:py-6">
-                            <span>Browse</span>
+                        <Button
+                            asChild
+                            className="w-32 font-semibold md:text-2xl md:w-64 md:py-6"
+                        >
+                            <Link href="/explore">
+                                <span>Browse</span>
+                            </Link>
                         </Button>
                         <Button
+                            asChild
                             className="w-32 group md:text-2xl md:w-64 md:py-6"
                             variant={"outline"}
                         >
-                            <span className="text-muted-foreground transition duration-150 group-hover:text-foreground">
-                                Learn More
-                            </span>
+                            <Link href="#learn-more-start">
+                                <span className="text-muted-foreground transition duration-150 group-hover:text-foreground">
+                                    Learn More
+                                </span>
+                            </Link>
                         </Button>
                     </div>
                 </div>
             </section>
 
             {/* WHY JOIN HACKATHONS */}
-            <section className="px-4 flex flex-col gap-3 md:px-16 md:pt-48 md:gap-8">
+            <section
+                id="learn-more-start"
+                className="px-4 flex flex-col gap-3 md:px-16 md:pt-48 md:gap-8"
+            >
                 <h2
                     className={`${rhodiumLibre.className} text-3xl font-extrabold md:text-5xl`}
                 >
-                    Why Join Hackathons?
+                    Why Join Tech Events?
                 </h2>
                 <p
                     className={`${khula.className} text-muted-foreground md:text-2xl md:max-w-4xl`}
                 >
-                    Hackathons are where ideas come to life and connections are
+                    Tech events are where ideas come to life and connections are
                     made!
                     <br />
                     <br />
-                    HackPH connects you to the latest hackathons across the
+                    HackPH connects you to the latest tech events across the
                     Philippines, tailored to your interests and goals. Did we
                     mention that everything is completely free and our code is
                     open-source?
@@ -80,7 +93,7 @@ export default function Page() {
 
             {/* MEET THE DEVELOPERS */}
             <section
-                id="developers"
+                id="developers-section"
                 className="relative w-full flex flex-col justify-center items-center gap-14 pt-44 pb-14 max-md:px-7"
             >
                 <h1

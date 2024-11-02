@@ -9,7 +9,7 @@ const rhodiumLibre = Rhodium_Libre({
 
 export function Footer() {
     return (
-        <footer className="pt-[30rem]">
+        <footer id="footer-section" className="pt-[40rem]">
             <section className="bg-primary w-full p-5 md:py-8 md:px-20">
                 <ul className="flex flex-col justify-start">
                     <li className="flex flex-col justify-start gap-5 max-w-xs">
@@ -20,7 +20,7 @@ export function Footer() {
                         <h2
                             className={`${rhodiumLibre.className} text-2xl font-semibold`}
                         >
-                            Pinoys' Gateway to Hackathon Opportunities
+                            Pinoys' Gateway to Tech Opportunities
                         </h2>
                     </li>
                     <div className="w-full h-0.5 bg-primary-foreground rounded-[var(--radius)] my-10 md:hidden" />

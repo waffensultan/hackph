@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 import { ThemeProvider } from "@/components/theme-provider";
 
 export const metadata: Metadata = {
-    title: "HackPH - Find hackathons in the Philippines",
+    title: "HackPH - Pinoys' Gateway to Tech Opportunities",
     authors: {
         name: "Waffen Sultan",
         url: "https://github.com/waffensultan",

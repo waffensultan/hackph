@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import { Dosis } from "next/font/google";
 
 const dosis = Dosis({
@@ -10,14 +12,16 @@ type LogoProps = {
 
 export function Logo(props: LogoProps) {
     return (
-        <h1
-            className={`${dosis.className} text-5xl ${
-                props.style === "footer"
-                    ? "text-secondary-foreground"
-                    : "text-primary"
-            }`}
-        >
-            HackPH
-        </h1>
+        <Link href="/">
+            <h1
+                className={`${dosis.className} tracking-wide text-5xl ${
+                    props.style === "footer"
+                        ? "text-secondary-foreground"
+                        : "text-primary"
+                }`}
+            >
+                HackPH
+            </h1>
+        </Link>
     );
 }

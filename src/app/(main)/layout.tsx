@@ -1,12 +1,26 @@
-import { Navigation } from "@/components/navigation"
-import { Footer } from "@/components/footer"
+import { Fragment } from "react";
 
-export default function MainLayout({ children}: { children: React.ReactNode }) {
+import { createClient } from "@supabase/server";
+
+import { Navigation } from "@/components/navigation";
+import { Footer } from "@/components/footer";
+
+export default async function MainLayout({
+    children,
+}: {
+    children: React.ReactNode;
+}) {
+    const supabase = await createClient();
+
+    const {
+        data: { user },
+    } = await supabase.auth.getUser();
+
     return (
-        <main>
-            <Navigation />
+        <Fragment>
+            <Navigation user={user} />
             {children}
             <Footer />
-        </main>
-    )
+        </Fragment>
+    );
 }

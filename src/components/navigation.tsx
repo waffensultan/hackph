@@ -1,4 +1,10 @@
+"use client";
+
+import { type User } from "@supabase/supabase-js";
+
 import { Menu as MenuIcon } from "lucide-react";
+
+import { logout } from "@/app/(main)/action";
 
 import Link from "next/link";
 
@@ -7,29 +13,62 @@ import {
     DropdownMenuContent,
     DropdownMenuItem,
     DropdownMenuTrigger,
+    DropdownMenuSeparator,
+    DropdownMenuLabel,
 } from "@/packages/ui/components/ui/dropdown-menu";
 
 import { Logo } from "./typography/logo";
 
-export function Navigation() {
-    const navLinks = ["Browse Hackathons", "Developers", "Contact"];
+type NavigationProps = {
+    user: User | null;
+};
+
+type Links = {
+    title: string;
+    url: string;
+};
+
+export function Navigation({ user }: NavigationProps) {
+    const navLinks: Links[] = [
+        {
+            title: "Explore Events",
+            url: "/explore",
+        },
+        {
+            title: "Partnerships",
+            url: "/partnerships",
+        },
+        {
+            title: "Developers",
+            url: "#developers-section",
+        },
+        {
+            title: "Contact",
+            url: "#footer-section",
+        },
+    ];
+
+    const handleLogout = async () => {
+        try {
+            await logout();
+        } catch (error) {
+            console.error("Error signing out:", error);
+        }
+    };
 
     return (
         <nav className="border-b border-primary p-5">
-            <ul className="w-full flex flex-row items-center">
+            <ul className="w-full flex flex-row items-center justify-between ">
                 <li>
-                    <Link href={"/"}>
-                        <Logo style="header" />
-                    </Link>
+                    <Logo style="header" />
                 </li>
-                <li className="ml-auto flex flex-row items-center gap-8 font-semibold text-muted-foreground tracking-wide">
+                <li className="flex flex-row items-center gap-8 font-semibold text-muted-foreground tracking-wide">
                     {navLinks.map((link) => (
-                        <span
-                            key={link}
-                            className="max-md:hidden md:visible cursor-pointer transition duration-150 hover:text-primary"
-                        >
-                            {link}
-                        </span>
+                        <Link key={link.title} href={link.url}>
+                            <span className="max-md:hidden md:visible cursor-pointer transition duration-150 hover:text-primary">
+                                {link.title}
+                            </span>
+                        </Link>
                     ))}
                     <DropdownMenu>
                         <DropdownMenuTrigger className="visible md:hidden focus:outline-none bg-primary p-2">
@@ -38,14 +77,48 @@ export function Navigation() {
                         <DropdownMenuContent className="mr-3">
                             {navLinks.map((link) => (
                                 <DropdownMenuItem
-                                    key={link}
+                                    key={link.title}
                                     className="focus:text-primary"
                                 >
-                                    <span>{link}</span>
+                                    <Link href={link.url}>
+                                        <span>{link.title}</span>
+                                    </Link>
                                 </DropdownMenuItem>
                             ))}
+                            <DropdownMenuSeparator />
+                            <DropdownMenuLabel>Account</DropdownMenuLabel>
+                            <DropdownMenuItem>
+                                {user ? (
+                                    <span
+                                        onClick={() => handleLogout()}
+                                        className="text-primary text-sm font-semibold tracking-tight"
+                                    >
+                                        Log out
+                                    </span>
+                                ) : (
+                                    <Link href="/login">
+                                        <span className="text-primary text-sm font-semibold tracking-tight">
+                                            Log in
+                                        </span>
+                                    </Link>
+                                )}
+                            </DropdownMenuItem>
                         </DropdownMenuContent>
                     </DropdownMenu>
+                </li>
+
+                <li className="hidden md:flex">
+                    <Link href="/login">
+                        {user ? (
+                            <span className="text-primary text-xl font-semibold tracking-tight">
+                                Log out
+                            </span>
+                        ) : (
+                            <span className="text-primary text-xl font-semibold tracking-tight">
+                                Log in
+                            </span>
+                        )}
+                    </Link>
                 </li>
             </ul>
         </nav>
