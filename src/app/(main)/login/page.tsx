@@ -12,10 +12,10 @@ import { Label } from "@/packages/ui/components/ui/label";
 import { Button } from "@/packages/ui/components/ui/button";
 
 export default function Page() {
-    const [email, setEmail] = useState<undefined | string>(undefined);
+    const [email, setEmail] = useState("");
     const [loading, setLoading] = useState(false);
 
-    const emailIsValid = email !== undefined && email.length > 4;
+    const emailIsValid = email.length > 4;
 
     const handleSubmit = async () => {
         setLoading(true);
@@ -65,7 +65,7 @@ export default function Page() {
                         <span className="text-lg">Send Magic Link</span>
                     </Button>
                 </section>
-                <footer className="max-w-xs pt-7 text-muted-foreground text-sm flex flex-row gap-3">
+                <footer className="max-w-xs mt-5 p-4 rounded-[var(--radius)] bg-muted/50 text-muted-foreground text-sm flex flex-row gap-3">
                     <div className="flex">
                         <QuoteIcon
                             size={20}
@@ -73,8 +73,8 @@ export default function Page() {
                         />
                     </div>
                     <span className="leading-tighter">
-                        🔒 No password needed! Enter your email, and we'll send
-                        you a secure link to log in.
+                        🔒 HackPH doesn't require passwords! Enter your email,
+                        and we'll send you a secure link to log in.
                     </span>
                     <div className="flex">
                         <QuoteIcon size={20} className="self-end" />

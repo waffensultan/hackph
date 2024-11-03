@@ -70,6 +70,8 @@ export function Navigation({ user }: NavigationProps) {
                             </span>
                         </Link>
                     ))}
+
+                    {/* MOBILE */}
                     <DropdownMenu>
                         <DropdownMenuTrigger className="visible md:hidden focus:outline-none bg-primary p-2">
                             <MenuIcon />
@@ -89,12 +91,12 @@ export function Navigation({ user }: NavigationProps) {
                             <DropdownMenuLabel>Account</DropdownMenuLabel>
                             <DropdownMenuItem>
                                 {user ? (
-                                    <span
+                                    <div
                                         onClick={() => handleLogout()}
                                         className="text-primary text-sm font-semibold tracking-tight"
                                     >
-                                        Log out
-                                    </span>
+                                        <span>Log out</span>
+                                    </div>
                                 ) : (
                                     <Link href="/login">
                                         <span className="text-primary text-sm font-semibold tracking-tight">
@@ -108,17 +110,20 @@ export function Navigation({ user }: NavigationProps) {
                 </li>
 
                 <li className="hidden md:flex">
-                    <Link href="/login">
-                        {user ? (
-                            <span className="text-primary text-xl font-semibold tracking-tight">
-                                Log out
-                            </span>
-                        ) : (
+                    {user ? (
+                        <div
+                            onClick={() => handleLogout()}
+                            className="text-primary text-xl font-semibold tracking-tight cursor-pointer"
+                        >
+                            <span>Log out</span>
+                        </div>
+                    ) : (
+                        <Link href="/login">
                             <span className="text-primary text-xl font-semibold tracking-tight">
                                 Log in
                             </span>
-                        )}
-                    </Link>
+                        </Link>
+                    )}
                 </li>
             </ul>
         </nav>

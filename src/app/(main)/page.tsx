@@ -31,12 +31,12 @@ export default function Page() {
             <section className="w-full py-28 flex justify-center items-center">
                 <div className="max-w-xs flex flex-col gap-7 text-center md:gap-16 md:max-w-4xl">
                     <h1
-                        className={`${rhodiumLibre.className} text-4xl font-extrabold md:text-6xl`}
+                        className={`${rhodiumLibre.className} text-5xl font-extrabold md:text-6xl`}
                     >
                         Pinoys' Gateway to Tech Opportunities
                     </h1>
                     <p
-                        className={`${khula.className} text-muted-foreground md:text-2xl`}
+                        className={`${khula.className} text-muted-foreground text-xl md:text-2xl`}
                     >
                         HackPH makes sure you never miss out on an opportunity.
                         With curated lists and real-time updates, with us,
@@ -104,8 +104,8 @@ export default function Page() {
                 <div className="shadow-2xl shadow-primary border border-primary w-full max-w-6xl rounded-[var(--radius)] py-20 flex flex-col gap-10 flex-wrap justify-center md:flex-row">
                     <DeveloperCard
                         name="Waffen Sultan"
-                        introduction="The creator of HackPH. An enthusiast of Vim in VSCode and typing blazingly fast. Did we mention that they also happen to be single? "
-                        position="Lead Full-Stack Developer"
+                        introduction="The creator of HackPH. An enthusiast of Vim in VSCode and typing blazingly fast."
+                        position="Software Lead"
                         image={{
                             src: "https://avatars.githubusercontent.com/u/111581149?v=4",
                             alt: "waffen",
